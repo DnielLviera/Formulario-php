@@ -4,20 +4,23 @@
         $nombre = trim($_POST['nombre'] ?? '');
         $correo = trim($_POST['correo'] ?? '');
         $contrasena = trim($_POST['contrasena'] ?? '');
+        $confirmar_contrasena = trim($_POST['confirmar_contrasena'] ?? '');
 
-        // Validación de campos vacíos
-        if (empty($nombre) || empty($correo) || empty($contrasena)) {
+        if (empty($nombre) || empty($correo) || empty($contrasena) || empty($confirmar_contrasena)) {
             header("Location: index.php?error=campos_vacios");
             exit();
         }
 
-        // Validación del correo electrónico
+        if ($contrasena !== $confirmar_contrasena) {
+            header("Location: index.php?error=contrasenas_no_coinciden");
+            exit();
+        }
+
         if (!preg_match('/^[^@]+@[^@]+\.com$/', $correo)) {
             header("Location: index.php?error=correo_invalido");
             exit();
         }
 
-        // Validación de la contraseña
         if (strlen($contrasena) < 8) {
             header("Location: index.php?error=contrasena_corta");
             exit();
@@ -27,9 +30,15 @@
             header("Location: index.php?error=contrasena_sin_mayuscula");
             exit();
         }
+        
 
         if (!preg_match('/[a-z]/', $contrasena)) {
             header("Location: index.php?error=contrasena_sin_minuscula");
+            exit();
+        }
+
+        if (!preg_match('/[0-9]/', $contrasena)) {
+            header("Location: index.php?error=contrasena_sin_numero");
             exit();
         }
 

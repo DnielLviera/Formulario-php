@@ -13,5 +13,15 @@
         "nombre": "daniel",
         "correo": "mequieroir@gmail.com",
         "contrasena_hash": "$2y$10$ziitA0C5b6JRcST0\/OTnJuWmX0jDYKhmEdefQkGVNi1vOlxbjUbbW"
+    },
+    {
+        "nombre": "Dante",
+        "correo": "usuario@gmail.com",
+        "contrasena_hash": "$2y$10$xF1Z8t33JpC3hixywBhPp.J94XTnKNX0.zJDsZAgCwSBScmf15hWK"
+    },
+    {
+        "nombre": "Usuario",
+        "correo": "ejemplo@gmail.com",
+        "contrasena_hash": "$2y$10$U0j6lRksS3A7PFC1QDsmQ.i6WDoOpjN1SDkCJuSF1jGuenU6v4oKW"
     }
 ]
